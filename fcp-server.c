@@ -25,7 +25,11 @@ int main(int argc, char **argv)
     fd_set readfds;
 
     if ( argc < 2 )
+    {
+        printf (BLU"No arguments given. Default client count : 1"RESET
+                "\n");
         max_clients = 1;
+    }
     else
         max_clients = atoi (argv[1]);
 

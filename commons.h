@@ -12,6 +12,7 @@ typedef enum
     MSG_OP
 } op_t;
 
+
 typedef struct
 {
     char filename[50];
