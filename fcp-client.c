@@ -10,7 +10,7 @@
 int main(int argc, char **argv)
 {
     int sockfd,retval;
-    int rec_bytes,sent_bytes;
+    int rec_bytes;
     struct sockaddr_in serveraddr;
     filechunk_t fc;
     FILE *f = NULL;
@@ -20,6 +20,7 @@ int main(int argc, char **argv)
         printf ("No IP Address given\n");
         return -1;
     }
+
     sockfd = socket (AF_INET,SOCK_STREAM,0);
     assert (sockfd != -1 );
 
