@@ -14,19 +14,21 @@ int main(int argc, char **argv)
     struct sockaddr_in serveraddr;
     filechunk_t fc;
     FILE *f = NULL;
-
+    char *ip;
     if ( argc < 2 )
     {
-        printf ("No IP Address given\n");
-        return -1;
+        /* if no args given connect to localhost */
+        ip = LOCALHOST;
     }
+    else
+        ip = argv[1];
 
     sockfd = socket (AF_INET,SOCK_STREAM,0);
     assert (sockfd != -1 );
 
     serveraddr.sin_family = AF_INET;
     serveraddr.sin_port = htons (4050);
-    serveraddr.sin_addr.s_addr = inet_addr(argv[1]);
+    serveraddr.sin_addr.s_addr = inet_addr(ip);
 
     retval = connect (sockfd,(struct sockaddr*) &serveraddr,sizeof
             (serveraddr));

@@ -5,6 +5,7 @@
 #define RESET "\033[0m"
 #define BLU "\033[1;34m"
 
+#define LOCALHOST "127.0.0.1"
 typedef enum
 {
     FILE_OP,
