@@ -63,6 +63,10 @@ int main(int argc, char **argv)
             printf (GREEN"File written to '%s'"RESET"\n",fc.filename);
             fclose (f);
         }
+        else if ( fc.op == HELLO_OP )
+        {
+            printf (BLU"%s\n"RESET, fc.msg_str);
+        }
     }
     close (sockfd);
     return 0;

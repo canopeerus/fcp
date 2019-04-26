@@ -173,6 +173,21 @@ int main(int argc, char **argv)
                 fclose (file);
             }
         }
+        else if ( strcmp (com_str, "hello") == 0 )
+        {
+            fc.op = HELLO_OP;
+            strcpy(fc.msg_str,HELLO_MSG);
+            for ( i = 0;i < max_clients;i++)
+            {
+                if ( client_sockets[i] != 0 )
+                {
+                    sentbytes = send (client_sockets[i], &fc,
+                            sizeof(fc), 0);
+                    assert (sentbytes != -1 );
+                }
+            }
+        }
+
         else if ( strcmp (com_str,"exit") == 0 )
         {
             fc.op = EXIT_OP;
